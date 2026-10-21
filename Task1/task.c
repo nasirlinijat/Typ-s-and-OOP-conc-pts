@@ -18,6 +18,12 @@ int use_heap() {
     return r;
 }
 
+int use_stack() {
+    int arr[SIZE];
+    arr[0] = 1;
+    return arr[0];
+}
+
 int main() {
     clock_t t;
  
@@ -28,6 +34,8 @@ int main() {
     for (int i = 0; i < CALLS; i++) use_heap();
     printf("heap: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
  
-
+      for (int i = 0; i < CALLS; i++) use_stack();
+    printf("stack: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
+ 
     return 0;
 }

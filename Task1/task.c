@@ -31,10 +31,12 @@ int main() {
     for (int i = 0; i < CALLS; i++) use_static();
     printf("static: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
 
+    t = clock();
     for (int i = 0; i < CALLS; i++) use_heap();
     printf("heap: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
  
-      for (int i = 0; i < CALLS; i++) use_stack();
+    t = clock();
+    for (int i = 0; i < CALLS; i++) use_stack();
     printf("stack: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
  
     return 0;

@@ -57,3 +57,25 @@ class CD < LibraryItem
   end
 end
 
+class Library
+  def initialize
+    @items = []
+  end
+
+  def add_item(item)
+    @items << item
+  end
+
+  def remove_item(item)
+    @items.delete(item)
+  end
+
+  def display_item(item)
+    item.display_info
+  end
+
+  def display_all_items
+    @items.each { |item| display_item(item) }
+  end
+end
+

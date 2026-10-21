@@ -10,6 +10,13 @@ int use_static() {
     arr[0] = 1;
     return arr[0];
 }
+int use_heap() {
+    int *arr = malloc(SIZE * sizeof(int));
+    arr[0] = 1;
+    int r = arr[0];
+    free(arr);
+    return r;
+}
 
 int main() {
     clock_t t;
@@ -17,6 +24,10 @@ int main() {
     t = clock();
     for (int i = 0; i < CALLS; i++) use_static();
     printf("static: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
+
+    for (int i = 0; i < CALLS; i++) use_heap();
+    printf("heap: %.4f s\n", (double)(clock() - t) / CLOCKS_PER_SEC);
+ 
 
     return 0;
 }

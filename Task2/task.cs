@@ -12,3 +12,15 @@ class Dog : Animal{
     public new void Move() { Console.WriteLine("Dog runs"); }          
 }
 
+class Program {
+    static void Main(){
+        Animal a = new Dog();
+        a.Eat();    
+        a.Sound();  
+        a.Move();   
+
+        Dog d = new Dog();
+        d.Eat();    
+        d.Move();   
+    }
+}
